@@ -1,5 +1,7 @@
 # Summary
 
+**Build a WordPress plugin that adds Mailjet SMTP correlation headers to FluentCRM emails, receives Mailjet webhook events, maps hard bounces/spam/unsubs to FluentCRM statuses, stores an auditable event log with idempotency, and runs a nightly reconciliation job for missed events.**
+
 Build a small WordPress plugin that connects **Mailjet bounce events** to **FluentCRM contact statuses** so FluentCRM stops emailing bad addresses and can track campaign-level bounce data. FluentCRM already supports statuses like `bounced`, `complained`, and `unsubscribed`, and contacts in `bounced` status should not receive further emails. Mailjet can provide the needed delivery events through its Event Tracking API, including `bounce`, `blocked`, `spam`, and `unsub`, and the payload includes Mailjet IDs plus `customcampaign` when `X-Mailjet-Campaign` is set. ([FluentCRM][1])
 
 ## Goal
@@ -289,12 +291,6 @@ The feature is done when:
 * every processed event is auditable
 * FluentCRM campaigns can be tied back to Mailjet events through `X-Mailjet-Campaign`
 * there is a fallback reconciliation job
-
-Here is the one-sentence brief for the developer:
-
-**Build a WordPress plugin that adds Mailjet SMTP correlation headers to FluentCRM emails, receives Mailjet webhook events, maps hard bounces/spam/unsubs to FluentCRM statuses, stores an auditable event log with idempotency, and runs a nightly reconciliation job for missed events.**
-
-I can also turn this into a formal developer handoff doc with implementation checklist and pseudo-code.
 
 [1]: https://fluentcrm.com/docs/contact-statuses/?utm_source=chatgpt.com "Contact Statuses - FluentCRM"
 [2]: https://documentation.mailjet.com/hc/en-us/articles/360043578154-Event-Tracking-API?utm_source=chatgpt.com "Event Tracking API – Mailjet Help Center"
