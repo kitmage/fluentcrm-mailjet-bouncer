@@ -1,4 +1,4 @@
-Give your developer this spec.
+# Summary
 
 Build a small WordPress plugin that connects **Mailjet bounce events** to **FluentCRM contact statuses** so FluentCRM stops emailing bad addresses and can track campaign-level bounce data. FluentCRM already supports statuses like `bounced`, `complained`, and `unsubscribed`, and contacts in `bounced` status should not receive further emails. Mailjet can provide the needed delivery events through its Event Tracking API, including `bounce`, `blocked`, `spam`, and `unsub`, and the payload includes Mailjet IDs plus `customcampaign` when `X-Mailjet-Campaign` is set. ([FluentCRM][1])
 
